@@ -56,7 +56,9 @@ const result = !filter ? persons : persons.filter(person => person.name.toLowerC
   return (
     <div>
       <h2>Phonebook</h2>
-    
+      <div>
+          Filter shown with : <input onChange ={handleFilter} />
+        </div>
       <h2>add a new </h2>
       <form onSubmit={addName}>
         <div>
