@@ -57,6 +57,7 @@ const App = () => {
       number: newPhone
     }
   const successMsg = `${newPerson.name} has successfuly been added to the phonebook ! `
+  const updateMsg = `${newPerson.name} has successfully been updated`
   //Checking if the phone number doesnt' belong to someone already 
   if (persons.some(e => e.number === newPerson.number && e.number !== '')) {
 
@@ -64,20 +65,27 @@ const App = () => {
       setNewPhone('');
     }
     else {
+    if (newPerson.number==="" || isNaN(newPerson.number)) {
+      alert('Please input a valid number')
+      setNewPhone('');
+      return
+    }
     //Checking if the person's name isn't already in the phonebook
     if (persons.some(e => e.name === newPerson.name)) {
-      if (  window.confirm(`${newPerson.name} is already added to the phonebook, want to replace his number ?`) )
+      if (  window.confirm(`${newPerson.name} is already added to the phonebook, want to replace his/her number ?`) )
       {
-      const person = persons.find (p => p.name= newPerson.name);
-      const changedPerson = {...person, number: newPhone};
+      const person = persons.filter (p => p.name=== newPerson.name);
+      
+      const changedPerson = {name: newName , number: newPhone, id: person[0].id};
+      
       
       PersonService
-      .update(person.id, changedPerson)
+      .update(changedPerson.id, changedPerson)
       .then(()=>{
         PersonService.getAll()
         .then(response => {
           setPersons(response)
-          setSuccessMessage(successMsg)
+          setSuccessMessage(updateMsg)
           setTimeout(() => {
             setSuccessMessage('')
           }, 5000)
@@ -85,6 +93,8 @@ const App = () => {
       }
     }
       else {
+      
+
        PersonService
        .create(newPerson)
         .then(response => {
