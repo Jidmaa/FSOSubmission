@@ -1,0 +1,294 @@
+::ffff:127.0.0.1 - - [29/Sep/2020:00:29:04 +0000] "GET /api/persons HTTP/1.1" 200 146 "-" "vscode-restclient"
+GET /api/persons 200 146 - 2.220 ms
+GET /api/persons 200 146 - 0.277 ms
+GET /api/persons 200 146 - 0.254 ms
+GET /api/persons 200 146 - 0.220 ms
+GET /api/persons 200 146 - 0.226 ms
+function logger (req, res, next) {
+    // request data
+    req._startAt = undefined
+    req._startTime = undefined
+    req._remoteAddress = getip(req)
+
+    // response data
+    res._startAt = undefined
+    res._startTime = undefined
+
+    // record request start
+    recordStartTime.call(req)
+
+    function logRequest () {
+      if (skip !== false && skip(req, res)) {
+        debug('skip request')
+        return
+      }
+
+      var line = formatLine(morgan, req, res)
+
+      if (line == null) {
+        debug('skip line')
+        return
+      }
+
+      debug('log request')
+      stream.write(line + '\n')
+    };
+
+    if (immediate) {
+      // immediate log
+      logRequest()
+    } else {
+      // record response start
+      onHeaders(res, recordStartTime)
+
+      // log when response finished
+      onFinished(res, logRequest)
+    }
+
+    next()
+  }
+GET /persons 404 146 - 5.164 ms
+POST /persons 404 147 - 0.153 ms
+GET /persons 404 146 - 0.350 ms
+GET /persons 404 146 - 0.486 ms
+POST /persons 404 147 - 0.147 ms
+GET /persons 404 146 - 0.334 ms
+GET /persons 404 146 - 0.339 ms
+GET /persons 404 146 - 0.326 ms
+GET /persons 404 146 - 1.078 ms
+GET /persons 404 146 - 0.364 ms
+POST /persons 404 147 - 0.134 ms
+GET /persons 404 146 - 0.425 ms
+GET /persons 404 146 - 0.356 ms
+GET /persons 404 146 - 0.299 ms
+GET /persons 404 146 - 0.300 ms
+GET /api/persons 200 146 - 1.523 ms
+GET /api/persons 304 - - 0.493 ms
+GET /api/persons 304 - - 0.248 ms
+GET /api/persons 304 - - 0.291 ms
+GET /api/persons 200 146 - 0.238 ms
+POST /api/persons 200 43 - 0.347 ms
+GET /api/persons 200 190 - 0.310 ms
+GET /api/persons 304 - - 0.315 ms
+GET /api/persons 304 - - 0.248 ms
+DELETE /api/persons/1 204 - - 0.381 ms
+GET /api/persons 200 140 - 0.284 ms
+DELETE /api/persons/2 204 - - 0.099 ms
+GET /api/persons 200 92 - 0.306 ms
+GET /api/persons 200 92 - 0.259 ms
+GET /api/persons 304 - - 0.263 ms
+PUT /api/persons/752463 404 157 - 0.162 ms
+GET /api/persons 200 92 - 0.314 ms
+POST /api/persons 200 43 - 0.226 ms
+GET /api/persons 200 136 - 0.268 ms
+GET /api/persons 304 - - 0.307 ms
+DELETE /api/persons/342274 204 - - 0.119 ms
+GET /api/persons 200 92 - 0.219 ms
+GET /api/persons - - - - ms
+GET / 200 15 - 1.280 ms
+GET /favicon.ico 404 150 - 1.294 ms
+GET /api/persons 200 87 - 400.999 ms
+GET /api/persons 304 - - 83.453 ms
+GET /api/persons 304 - - 64.977 ms
+GET /favicon.ico 404 150 - 1.033 ms
+GET /api/persons 304 - - 66.386 ms
+GET /api/persons/0 404 - - 0.379 ms
+GET /api/persons 304 - - 66.559 ms
+GET /api/persons 304 - - 64.529 ms
+GET /api/persons 200 67 - 74.891 ms
+GET /api/persons - - - - ms
+GET /api/persons 200 67 - 62.698 ms
+GET /api/persons/0 404 - - 0.460 ms
+GET /api/persons 200 67 - 64.722 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.115 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.110 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.100 ms
+GET /api/persons/0 404 - - 0.106 ms
+GET /api/persons/0 404 - - 0.136 ms
+GET /api/persons 304 - - 64.336 ms
+GET /api/persons/5 404 - - 0.105 ms
+GET /api/persons/5 404 - - 0.113 ms
+GET /favicon.ico 404 150 - 0.948 ms
+GET /api/persons/0 404 - - 0.200 ms
+GET /api/persons/0 404 - - 0.134 ms
+GET /api/persons/0 404 - - 0.105 ms
+GET /api/persons/0 404 - - 0.105 ms
+GET /api/persons 200 67 - 454.459 ms
+GET /api/persons 200 67 - 406.549 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.113 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.098 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.131 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.131 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.103 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.111 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.125 ms
+GET /api/persons/ 200 67 - 62.936 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.092 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.092 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.104 ms
+GET /api/persons/ 200 67 - 62.320 ms
+GET /api/persons/ 200 67 - 63.196 ms
+GET /api/persons/0 404 - - 0.105 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.154 ms
+GET /api/persons/%225f754e4ad5cff06b2f8d5d18%22 404 - - 0.102 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.114 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.121 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.129 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.095 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.131 ms
+GET /api/persons 200 67 - 62.671 ms
+GET /api/persons/ 200 67 - 74.335 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.096 ms
+GET /favicon.ico 404 150 - 0.246 ms
+GET /api/persons/ 200 67 - 62.525 ms
+GET /api/persons/0 404 - - 0.095 ms
+GET /favicon.ico 404 150 - 0.293 ms
+GET /api/persons/ - - - - ms
+GET /api/persons/ 200 67 - 67.147 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.099 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.122 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.095 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.136 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 - - 0.098 ms
+GET /api/persons/ 200 67 - 1686.453 ms
+GET /api/persons/ 200 67 - 596.878 ms
+GET /api/persons/ 200 67 - 799.287 ms
+GET /api/persons/0 404 - - 0.096 ms
+GET /api/persons/1 200 49 - 0.207 ms
+GET /api/persons/1 200 49 - 0.260 ms
+GET /api/persons/1 - - - - ms
+GET /api/persons/1 - - - - ms
+GET /api/persons/1 - - - - ms
+GET /api/persons/1 - - - - ms
+GET /api/persons/1 - - - - ms
+GET /api/persons 200 67 - 255.668 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 124.224 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 155.507 ms
+GET /info 500 2102 - 1.728 ms
+GET /info 200 110 - 5.748 ms
+GET /favicon.ico 404 150 - 1.112 ms
+GET /info 200 110 - 1.395 ms
+GET /favicon.ico 404 150 - 0.320 ms
+GET /info 200 110 - 0.230 ms
+GET /favicon.ico 404 150 - 0.264 ms
+GET /info 200 110 - 3.565 ms
+GET /favicon.ico 404 150 - 1.603 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 2.552 ms
+GET / 200 15 - 1.577 ms
+GET /favicon.ico 404 150 - 0.903 ms
+GET /api/persons/ - - - - ms
+GET /api/persons/ - - - - ms
+GET /api/persons - - - - ms
+GET /api/persons - - - - ms
+GET /api/persons - - - - ms
+GET /api/persons - - - - ms
+GET /api/persons - - - - ms
+POST /api/persons 500 2056 - 3.369 ms
+POST /api/persons 500 2056 - 0.405 ms
+POST /api/persons 200 65 - 12.866 ms
+GET /api/persons - - - - ms
+GET /api/persons 200 133 - 728.818 ms
+GET /api/persons 200 133 - 244.116 ms
+GET /api/persons 200 133 - 84.209 ms
+GET /api/persons 200 133 - 83.738 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 0.921 ms
+GET /api/persons 200 133 - 83.575 ms
+GET /api/persons 200 133 - 85.781 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 0.228 ms
+GET /api/persons 304 - - 84.523 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 92.256 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 96.579 ms
+GET /api/persons 304 - - 85.274 ms
+GET /api/persons 304 - - 102.473 ms
+GET /api/persons 304 - - 97.285 ms
+GET /api/persons 304 - - 179.469 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 0.851 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 2.572 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 2.917 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 7.688 ms
+GET /api/persons 304 - - 96.446 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 1.036 ms
+GET /api/persons - - - - ms
+GET /api/persons 304 - - 80.405 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 200 288 - 101.824 ms
+GET /api/persons 304 - - 104.419 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 200 288 - 488.192 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 200 288 - 119.468 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 87.959 ms
+GET /api/persons 304 - - 266.678 ms
+GET /api/persons - - - - ms
+GET /api/persons - - - - ms
+GET /api/persons 304 - - 224.218 ms
+GET /api/persons 304 - - 262.681 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 200 288 - 75.144 ms
+GET /api/persons 304 - - 165.041 ms
+GET /api/persons 304 - - 10634.231 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 1049.345 ms
+GET /api/persons 304 - - 659.005 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 237.161 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 645.395 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 278.530 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 353.128 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 65 - 354.404 ms
+DELETE /api/persons/Jidmaa 204 - - 191.057 ms
+GET /api/persons/ 200 133 - 73.948 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 91.829 ms
+DELETE /api/persons/5f754e4ad5cff06b2f8d5d18 204 - - 103.077 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 4 - 215.185 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 200 4 - 484.306 ms
+GET /api/persons/ 200 67 - 155.234 ms
+GET /api/persons/ 200 67 - 84.992 ms
+POST /api/persons/ 200 64 - 5.769 ms
+GET /api/persons - - - - ms
+GET /api/persons/ 200 132 - 244.201 ms
+GET /api/persons/ 200 132 - 168.841 ms
+GET /api/persons/ 200 132 - 75.254 ms
+GET /api/persons 200 132 - 881.587 ms
+GET /api/persons - - - - ms
+GET /api/persons 304 - - 284.706 ms
+POST /api/persons/ 200 68 - 4.396 ms
+GET /api/persons/ 200 201 - 352.396 ms
+GET /api/persons/ 200 201 - 351.858 ms
+GET /api/persons 200 201 - 407.630 ms
+POST /api/persons/ 200 70 - 10.663 ms
+GET /api/persons/ 200 272 - 287.067 ms
+GET /api/persons/ 200 272 - 273.939 ms
+DELETE /api/persons/5f768675a8eec117ac06f470 204 - - 219.892 ms
+GET /api/persons/ 200 201 - 97.720 ms
+GET /api/persons/ 200 201 - 167.008 ms
+GET /api/persons 304 - - 301.633 ms
+GET /api/persons 304 - - 185.780 ms
+GET /api/persons 200 201 - 346.273 ms
+POST /api/persons 200 83 - 4.893 ms
+GET /persons 404 146 - 0.863 ms
+GET /api/persons 200 285 - 253.741 ms
+DELETE /api/persons/5f7686447e9995176872ed60 204 - - 83.149 ms
+GET /api/persons 200 216 - 121.590 ms
+GET /api/persons 200 216 - 130.360 ms
+GET /api/persons 304 - - 113.214 ms
+POST /api/persons 200 67 - 0.664 ms
+DELETE /api/persons/5f767b7f62815278cc80e640 204 - - 176.749 ms
+GET /api/persons 200 218 - 89.506 ms
+GET /api/persons/5f754e4ad5cff06b2f8d5d18 404 686 - 85.374 ms
+GET /api/5f76830e30970d0c8f34997a 404 167 - 0.653 ms
+GET /api/persons/5f76830e30970d0c8f34997a 404 64 - 71.088 ms
+GET /api/persons/5f76830e30970d0c8f34997s 404 2167 - 2.615 ms
+GET /api/persons/5f76830e30970d0c8f34997af - - - - ms
+GET /api/persons/5f76830e30970d0c8f34997a 200 64 - 147.762 ms
+GET /api/persons/5f76830e30970d0c8f34997af 400 27 - 3.899 ms
+GET /api/persons 200 218 - 600.340 ms
+GET /api/persons 304 - - 66.584 ms
+GET /api/persons 304 - - 82.626 ms
+GET /api/persons/458485 400 27 - 10.913 ms
+GET /api/persons/458485 400 27 - 9.694 ms
+GET /api/persons/fajhigta 500 2182 - 8.975 ms
+GET /api/persons/fajhigta 400 27 - 7.995 ms
+GET /api/persons/fajhigta 500 2151 - 8.433 ms
+GET /api/persons/fajhigta 400 27 - 6.522 ms
+GET /api/persons/ 200 218 - 82.525 ms
+GET /api/persons 304 - - 67.437 ms
+GET /api/persons 304 - - 344.594 ms
+GET /api/persons/fjaia 400 27 - 2.786 ms
+GET /api/persons/fjaia 400 27 - 6.640 ms
+GET /api/persons/azfazf 400 27 - 1.129 ms
+DELETE /api/persons/azfazf 400 27 - 6.721 ms

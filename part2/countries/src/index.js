@@ -6,7 +6,7 @@ const ShowCountries = ({countries, setCountries, searchedCountries, setSearchedC
  
   
   const filteredCountries =countries.filter(country => country.name.toLowerCase().includes(searchedCountries.toLocaleLowerCase()))
-  console.log(filteredCountries)
+  
   if (filteredCountries.length < 10){ 
    if (filteredCountries.length ===1) {
     return ( <div>
@@ -30,7 +30,7 @@ const ShowCountries = ({countries, setCountries, searchedCountries, setSearchedC
     <div>
     {
     filteredCountries
-    .map(country => <li key={country.name}> {country.name} </li>)}
+    .map(country => <li key={country.name}> {country.name}  </li>)} 
       </div>
   )
   }
@@ -48,6 +48,7 @@ const App = () => {
  
   const [countries, setCountries]= useState([])
   const [searchedCountries,setSearchedCountries] = useState('');
+  
   
   return (
     <div>
