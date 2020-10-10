@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon index.js"
+    "test": "jest --verbose",
+    "dev": "nodemon index.js"
   },
   "author": "Majid",
   "license": "ISC",
@@ -17,8 +17,12 @@
     "mongoose-unique-validator": "^2.0.3"
   },
   "devDependencies": {
+    "jest": "^26.5.2",
     "nodemon": "^2.0.4"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
+  
 }
-
 
