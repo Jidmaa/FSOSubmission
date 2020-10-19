@@ -1,9 +1,10 @@
-POST http://localhost:3003/api/blogs 
-Content-Type: application/json
+POST http://localhost:3003/api/blogs
+Content-Type: application/json 
 
 {
-    "title" : "How to be awesome",
-    "author":  "Majid", 
-    "url" : "http://www.nhentai.net",
-    "likes" : 50
+    "title" : "jidma",
+    "author" : "majido", 
+    "url" : "bruh",
+    "likes": "5",
+    "user": "5f8d9fde83bb15465f79e3a4"
 }
